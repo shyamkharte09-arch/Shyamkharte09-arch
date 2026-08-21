@@ -20,30 +20,18 @@ jobs:
 
       - name: Auto Green Activity Generator
         run: |
-          git config --global user.name "shyamkharte09-arch"
-          git config --global user.email "shyamkharte09@gmail.com"
+          git config --global user.name "${{ github.actor }}"
+          git config --global user.email "${{ github.actor }}@users.noreply.github.com"
           
-          if [ ! -f .setup_done ]; then
-            for i in $(seq 476 -1 1); do
-              COMMITS=$(( (RANDOM % 7) + 1 ))
-              for j in $(seq 1 $COMMITS); do
-                DATE=$(date -d "$i days ago" +"%Y-%m-%dT12:$((j*5)):00")
-                echo "Backfill activity on $DATE" >> activity.txt
-                git add activity.txt
-                GIT_AUTHOR_DATE="$DATE" GIT_COMMITTER_DATE="$DATE" git commit -m "Contribution on $DATE"
-              done
-            done
-            touch .setup_done
-            git add .setup_done
-            git commit -m "Initial backfill complete"
-          else
-            COMMITS=$(( (RANDOM % 6) + 1 ))
-            for k in $(seq 1 $COMMITS); do
-              echo "Daily auto activity $(date) - $k" >> activity.txt
+          # मागील ४७६ दिवसांत रँडम कमिट्स तयार करणे
+          for i in $(seq 476 -1 1); do
+            COMMITS=$(( (RANDOM % 7) + 1 ))
+            for j in $(seq 1 $COMMITS); do
+              DATE=$(date -d "$i days ago" +"%Y-%m-%dT12:$((j*5)):00")
+              echo "Activity on $DATE - $j" >> activity.txt
               git add activity.txt
-              git commit -m "Daily contribution $k"
+              GIT_AUTHOR_DATE="$DATE" GIT_COMMITTER_DATE="$DATE" git commit -m "Activity on $DATE"
             done
-          fi
+          done
           
           git push origin main
-          
