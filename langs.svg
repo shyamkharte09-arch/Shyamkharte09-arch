@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="350" height="195" viewBox="0 0 350 195" fill="none">
+  <style>
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #39d353; }
+    .lang { font: 600 13px 'Segoe UI', Ubuntu, Sans-Serif; fill: #ffffff; }
+  </style>
+  <rect x="0.5" y="0.5" rx="4.5" height="99%" stroke="#238636" width="349" fill="#0d1117" stroke-width="1"/>
+  <text x="25" y="35" class="header">Most Used Languages</text>
+  <rect x="25" y="50" width="300" height="8" rx="4" fill="#21262d"/>
+  <rect x="25" y="50" width="222" height="8" rx="4" fill="#39d353"/>
+  <g transform="translate(25, 80)">
+    <circle cx="5" cy="5" r="4" fill="#39d353"/><text x="20" y="9" class="lang">Python 74.3%</text>
+    <circle cx="5" cy="25" r="4" fill="#e3b341"/><text x="20" y="29" class="lang">JavaScript 11.6%</text>
+    <circle cx="5" cy="45" r="4" fill="#2ea043"/><text x="20" y="49" class="lang">Shell 6.2%</text>
+    <circle cx="5" cy="65" r="4" fill="#f85149"/><text x="20" y="69" class="lang">HTML 4.1%</text>
+    <circle cx="5" cy="85" r="4" fill="#8b949e"/><text x="20" y="89" class="lang">Other 3.8%</text>
+  </g>
+</svg>
