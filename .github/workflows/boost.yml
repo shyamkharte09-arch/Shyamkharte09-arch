@@ -2,6 +2,8 @@ name: Boost Contribution Graph
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '30 18 * * *'
 
 permissions:
   contents: write
@@ -13,22 +15,35 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
+          token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 0
 
-      - name: Generate Green Graph Commits
+      - name: Auto Green Activity Generator
         run: |
           git config --global user.name "shyamkharte09-arch"
           git config --global user.email "shyamkharte09@gmail.com"
           
-          # मागील ३६५ दिवसांत दररोज ५ कमिट्स बनवणे
-          for i in {365..1}; do
-            for j in {1..5}; do
-              DATE=$(date -d "$i days ago" +"%Y-%m-%d 12:00:00")
-              echo "Activity on $DATE" >> activity.txt
-              git add activity.txt
-              GIT_AUTHOR_DATE="$DATE" GIT_COMMITTER_DATE="$DATE" git commit -m "Commit $j on $DATE"
+          if [ ! -f .setup_done ]; then
+            for i in $(seq 476 -1 1); do
+              COMMITS=$(( (RANDOM % 7) + 1 ))
+              for j in $(seq 1 $COMMITS); do
+                DATE=$(date -d "$i days ago" +"%Y-%m-%dT12:$((j*5)):00")
+                echo "Backfill activity on $DATE" >> activity.txt
+                git add activity.txt
+                GIT_AUTHOR_DATE="$DATE" GIT_COMMITTER_DATE="$DATE" git commit -m "Contribution on $DATE"
+              done
             done
-          done
+            touch .setup_done
+            git add .setup_done
+            git commit -m "Initial backfill complete"
+          else
+            COMMITS=$(( (RANDOM % 6) + 1 ))
+            for k in $(seq 1 $COMMITS); do
+              echo "Daily auto activity $(date) - $k" >> activity.txt
+              git add activity.txt
+              git commit -m "Daily contribution $k"
+            done
+          fi
           
           git push origin main
           
