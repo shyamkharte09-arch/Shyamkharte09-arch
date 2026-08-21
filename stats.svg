@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="195" viewBox="0 0 450 195" fill="none">
+  <style>
+    .header { font: 600 18px 'Segoe UI', Ubuntu, Sans-Serif; fill: #39d353; }
+    .stat { font: 600 14px 'Segoe UI', Ubuntu, Sans-Serif; fill: #ffffff; }
+    .bold { font-weight: 700; }
+  </style>
+  <rect x="0.5" y="0.5" rx="4.5" height="99%" stroke="#238636" width="449" fill="#0d1117" stroke-width="1"/>
+  <text x="25" y="35" class="header">Shyam Kharte's GitHub Stats</text>
+  <g transform="translate(25, 55)">
+    <text y="20" class="stat">⭐ Total Stars Earned: <tspan x="220" class="bold">23</tspan></text>
+    <text y="45" class="stat">⏱ Total Commits (last year): <tspan x="220" class="bold">128</tspan></text>
+    <text y="70" class="stat">🔀 Total PRs: <tspan x="220" class="bold">8</tspan></text>
+    <text y="95" class="stat">❗ Total Issues: <tspan x="220" class="bold">15</tspan></text>
+    <text y="120" class="stat">📦 Contributed to (last year): <tspan x="220" class="bold">12</tspan></text>
+  </g>
+  <circle cx="370" cy="105" r="40" stroke="#39d353" stroke-width="6" fill="none"/>
+  <text x="370" y="115" font-size="32" font-family="'Segoe UI', Ubuntu, Sans-Serif" font-weight="bold" fill="#ffffff" text-anchor="middle">A</text>
+</svg>
