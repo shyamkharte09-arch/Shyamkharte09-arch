@@ -1,0 +1,34 @@
+name: Boost Contribution Graph
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  commit-gen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate Green Graph Commits
+        run: |
+          git config --global user.name "shyamkharte09-arch"
+          git config --global user.email "shyamkharte09@gmail.com"
+          
+          # मागील ३६५ दिवसांत दररोज ५ कमिट्स बनवणे
+          for i in {365..1}; do
+            for j in {1..5}; do
+              DATE=$(date -d "$i days ago" +"%Y-%m-%d 12:00:00")
+              echo "Activity on $DATE" >> activity.txt
+              git add activity.txt
+              GIT_AUTHOR_DATE="$DATE" GIT_COMMITTER_DATE="$DATE" git commit -m "Commit $j on $DATE"
+            done
+          done
+          
+          git push origin main
+          
