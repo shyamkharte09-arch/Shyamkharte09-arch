@@ -9,10 +9,11 @@
 ---
 
 ### 🚀 About Me
-* 🎓 12th Commerce Student with a hardcore passion for Tech.
-* 🤖 Lead Architect of Star AI (Advanced WhatsApp Assistant using Python & Gemini API).
-* 🛡️ Independent Security Researcher focused on vulnerability research and responsible disclosure.
-* 💻 Currently building scalable automation tools and exploring Offensive Security.
+- 🤖 Founder & Lead Architect of **Star AI** (Autonomous WhatsApp Interface)
+- 🎒 12th Commerce Student at Dr. Babasaheb Ambedkar College, Pune
+- 🛡️ Cybersecurity Researcher focused on Vulnerability Research & Threat Mitigation
+- ⚙️ Systems: Arch Linux, Termux, Git
+
 
 ---
 
